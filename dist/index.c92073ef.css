@@ -1,0 +1,56 @@
+ul {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+li {
+  border: 1.5px solid #000;
+  border-radius: 20px;
+  padding-bottom: 15px;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin: 0;
+}
+
+input {
+  outline: none;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+span {
+  text-align: center;
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}
+/*# sourceMappingURL=index.c92073ef.css.map */

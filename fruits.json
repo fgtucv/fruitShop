@@ -1,0 +1,46 @@
+{
+  "fruits": [
+    {
+      "title": "Яблуко",
+      "price": "35.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i0/catalog_product_gal_64.webp",
+      "id": "aabe"
+    },
+    {
+      "title": "Виноград",
+      "price": "219.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i7/catalog_product_gal_6512.webp",
+      "id": "b567"
+    },
+    {
+      "title": "Апельсин",
+      "price": "63.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i5/catalog_product_gal_4543.webp",
+      "id": "cf63"
+    },
+    {
+      "title": "Лимон",
+      "price": "68.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i0/catalog_product_gal_25.webp",
+      "id": "c20a"
+    },
+    {
+      "title": "Гранат",
+      "price": "98.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i7/catalog_product_gal_6772.webp",
+      "id": "5623"
+    },
+    {
+      "title": "Грейпфрут",
+      "price": "68.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i0/catalog_product_gal_5.webp",
+      "id": "ad6d"
+    },
+    {
+      "id": "c5fa",
+      "title": "f",
+      "price": "efsf",
+      "photo": "dfsf"
+    }
+  ]
+}
