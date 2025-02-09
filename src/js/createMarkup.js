@@ -11,6 +11,8 @@ export const createMarkup = (arr) => {
             <img src="${obj.photo}" alt="1">
             <h2>${obj.title}</h2>
             <span>${obj.price}</span>
+            <button class="delet" type="button">Редагувати</button>
+            <button class="edit" type="button">Видалити</button>
         </li>`;
     }).join("");
 

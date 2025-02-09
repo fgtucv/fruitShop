@@ -37,10 +37,16 @@
       "id": "ad6d"
     },
     {
-      "id": "c5fa",
-      "title": "f",
-      "price": "efsf",
-      "photo": "dfsf"
+      "id": "1641",
+      "title": "Мандарин",
+      "price": "69.95 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i15/catalog_product_gal_19437.webp"
+    },
+    {
+      "id": "3c79",
+      "title": "Банан",
+      "price": "60.89 грн/кг",
+      "photo": "https://src.zakaz.atbmarket.com/prodwebp/catalog_product_gal/i15/catalog_product_gal_18797.webp"
     }
   ]
 }

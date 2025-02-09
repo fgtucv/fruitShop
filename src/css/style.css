@@ -8,7 +8,7 @@ ul {
     justify-content: center;
 }
 
-li{
+li {
     border: 1.5px black solid;
     border-radius: 20px;
     padding-bottom: 15px;
@@ -51,6 +51,46 @@ span {
     display: block;
     text-align: center;
 }
-.is-hidden{
+
+.is-hidden {
     display: none;
+    pointer-events: none;
 }
+
+.modal {
+    position: absolute;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 50px;
+    padding-left: 20px;
+    border-radius: 30px;
+    box-shadow: black 4px 3px 20px 3px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal input {
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.modal button {
+    width: 200px;
+}
+
+/* .delet {
+    margin-right: auto;
+}
+
+.edit {
+    margin-left: auto;
+} */

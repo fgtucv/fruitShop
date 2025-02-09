@@ -618,6 +618,8 @@ const createMarkup = (arr)=>{
             <img src="${obj.photo}" alt="1">
             <h2>${obj.title}</h2>
             <span>${obj.price}</span>
+            <button class="delet" type="button">\u{420}\u{435}\u{434}\u{430}\u{433}\u{443}\u{432}\u{430}\u{442}\u{438}</button>
+            <button class="edit" type="button">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
         </li>`;
     }).join("");
     list.innerHTML = html;
@@ -707,6 +709,9 @@ const getFruits = ()=>{
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8grgN":[function(require,module,exports,__globalThis) {
 
 },{}],"edP1X":[function(require,module,exports,__globalThis) {
+const deletButton = document.querySelector(".delet");
+deletButton.addEventListener("click", deletFruit);
+function deletFruit() {}
 
 },{}],"8lRBv":[function(require,module,exports,__globalThis) {
 var _getFruitApiJs = require("./services/getFruitApi.js");

@@ -4,8 +4,8 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "homepage": "https://github.com/fgtucv/fruitShop",
   "scripts": {
-    "start": "parcel ./src/index.html --no-cache",
-    "build": "parcel build ./src/*.html --no-cache --public-url /event_booster-project/",
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/*.html",
     "server": "npx json-server fruits.json"
   },
   "dependencies": {
