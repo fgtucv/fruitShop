@@ -104,3 +104,11 @@ span {
     box-shadow: 8px 5px 8px 3px;
     border-radius: 10px;
 }
+
+.openAddButton{
+    display: block;
+    margin: 40px auto;
+    padding: 10px;
+    box-shadow: 8px 5px 8px 3px;
+    border-radius: 10px;
+}
