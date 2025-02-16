@@ -608,14 +608,26 @@ var _closeEditModalJs = require("./js/modals/closeEditModal.js");
 var _openEditModalJs = require("./js/modals/openEditModal.js");
 var _getFruitsJs = require("./js/fruitOperation/getFruits.js");
 
-},{"./js/services/getFruitApi.js":"j65ic","./js/services/addFruitApi.js":"52DCQ","./js/services/updateFruitApi.js":"8grgN","./js/services/deletFruitApi.js":"edP1X","./js/app.js":"8lRBv","./js/modals/closeEditModal.js":"1HARO","./js/modals/openEditModal.js":"7V7vH","./js/fruitOperation/getFruits.js":"4BFAe","./js/fruitOperation/deletFruit.js":"5YdDU","./js/modals/addModal.js":"7qWxQ","./js/fruitOperation/createMarkup.js":"5Kccg"}],"j65ic":[function(require,module,exports,__globalThis) {
+},{"./js/fruitOperation/createMarkup.js":"5Kccg","./js/modals/addModal.js":"7qWxQ","./js/services/getFruitApi.js":"j65ic","./js/services/addFruitApi.js":"52DCQ","./js/services/updateFruitApi.js":"8grgN","./js/services/deletFruitApi.js":"edP1X","./js/app.js":"8lRBv","./js/fruitOperation/deletFruit.js":"5YdDU","./js/modals/closeEditModal.js":"1HARO","./js/modals/openEditModal.js":"7V7vH","./js/fruitOperation/getFruits.js":"4BFAe"}],"5Kccg":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getFruitsApi", ()=>getFruitsApi);
-const getFruitsApi = (page)=>{
-    return fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products?page=${page}&limit=2`).then((data)=>{
-        return data.json();
-    });
+parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
+const list = document.querySelector(".list");
+const createMarkup = (arr)=>{
+    // let html;
+    // list.innerHTML = "";
+    // html = "";
+    const html = arr.map((obj)=>{
+        return `        <li id="${obj.id}">
+            <img src="${obj.photo}" alt="${obj.title}">
+            <h2>${obj.title}</h2>
+            <span>${obj.price}</span>
+            <button class="openUpdateButton" type="button">\u{420}\u{435}\u{434}\u{430}\u{433}\u{443}\u{432}\u{430}\u{442}\u{438}</button>
+            <button class="delet" type="button">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
+        </li>`;
+    }).join("");
+    // list.innerHTML = html;
+    list.insertAdjacentHTML("beforeend", html);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports,__globalThis) {
@@ -648,7 +660,28 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"52DCQ":[function(require,module,exports,__globalThis) {
+},{}],"7qWxQ":[function(require,module,exports,__globalThis) {
+var _addFruitApiJs = require("../services/addFruitApi.js");
+const openButton = document.querySelector(".openAddButton");
+const form = document.querySelector(".addForm");
+const modal = document.querySelector(".addModal");
+openButton.addEventListener("click", openModal);
+form.addEventListener("submit", closeModal);
+function openModal() {
+    modal.classList.remove("is-hidden");
+}
+function closeModal(event) {
+    event.preventDefault();
+    modal.classList.add("is-hidden");
+    const postToAdd = {
+        title: event.target.elements.nameInput.value,
+        price: event.target.elements.priceInput.value,
+        photo: event.target.elements.photoInput.value
+    };
+    (0, _addFruitApiJs.addFruitApi)(postToAdd);
+}
+
+},{"../services/addFruitApi.js":"52DCQ"}],"52DCQ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
@@ -661,6 +694,16 @@ const addFruitApi = (newFruit)=>{
         }
     };
     return fetch("https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products", options).then((data)=>{
+        return data.json();
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j65ic":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFruitsApi", ()=>getFruitsApi);
+const getFruitsApi = (page)=>{
+    return fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products?page=${page}&limit=2`).then((data)=>{
         return data.json();
     });
 };
@@ -686,29 +729,7 @@ const updateFruitApi = function(obj, elementId) {
     }); //.then(() => getFruitsApi()).then((data) => createMarkup(data))
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./getFruitApi.js":"j65ic","../fruitOperation/createMarkup.js":"5Kccg"}],"5Kccg":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createMarkup", ()=>createMarkup);
-const list = document.querySelector(".list");
-const createMarkup = (arr)=>{
-    // let html;
-    // list.innerHTML = "";
-    // html = "";
-    const html = arr.map((obj)=>{
-        return `        <li id="${obj.id}">
-            <img src="${obj.photo}" alt="${obj.title}">
-            <h2>${obj.title}</h2>
-            <span>${obj.price}</span>
-            <button class="openUpdateButton" type="button">\u{420}\u{435}\u{434}\u{430}\u{433}\u{443}\u{432}\u{430}\u{442}\u{438}</button>
-            <button class="delet" type="button">\u{412}\u{438}\u{434}\u{430}\u{43B}\u{438}\u{442}\u{438}</button>
-        </li>`;
-    }).join("");
-    // list.innerHTML = html;
-    list.insertAdjacentHTML("beforeend", html);
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"edP1X":[function(require,module,exports,__globalThis) {
+},{"./getFruitApi.js":"j65ic","../fruitOperation/createMarkup.js":"5Kccg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"edP1X":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
@@ -750,7 +771,7 @@ const getFruit = (page)=>{
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../services/getFruitApi":"j65ic","./createMarkup.js":"5Kccg","./deletFruit.js":"5YdDU","../modals/openEditModal.js":"7V7vH"}],"5YdDU":[function(require,module,exports,__globalThis) {
+},{"../services/getFruitApi":"j65ic","./createMarkup.js":"5Kccg","./deletFruit.js":"5YdDU","../modals/openEditModal.js":"7V7vH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5YdDU":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deletFruit", ()=>deletFruit);
@@ -767,7 +788,7 @@ const deletFruit = function(event) {
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../services/deletFruitApi.js":"edP1X","../services/getFruitApi.js":"j65ic","./createMarkup.js":"5Kccg"}],"7V7vH":[function(require,module,exports,__globalThis) {
+},{"../services/deletFruitApi.js":"edP1X","../services/getFruitApi.js":"j65ic","./createMarkup.js":"5Kccg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7V7vH":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "openModal", ()=>openModal);
@@ -791,7 +812,7 @@ const openModal = function openModal(event) {
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./closeEditModal.js":"1HARO"}],"1HARO":[function(require,module,exports,__globalThis) {
+},{"./closeEditModal.js":"1HARO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1HARO":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "closeModal", ()=>closeModal);
@@ -803,27 +824,6 @@ const closeModal = function(event, newInfo) {
     (0, _updateFruitApi.updateFruitApi)(newInfo, newInfo.id);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../services/updateFruitApi":"8grgN"}],"7qWxQ":[function(require,module,exports,__globalThis) {
-var _addFruitApiJs = require("../services/addFruitApi.js");
-const openButton = document.querySelector(".openAddButton");
-const form = document.querySelector(".addForm");
-const modal = document.querySelector(".addModal");
-openButton.addEventListener("click", openModal);
-form.addEventListener("submit", closeModal);
-function openModal() {
-    modal.classList.remove("is-hidden");
-}
-function closeModal(event) {
-    event.preventDefault();
-    modal.classList.add("is-hidden");
-    const postToAdd = {
-        title: event.target.elements.nameInput.value,
-        price: event.target.elements.priceInput.value,
-        photo: event.target.elements.photoInput.value
-    };
-    (0, _addFruitApiJs.addFruitApi)(postToAdd);
-}
-
-},{"../services/addFruitApi.js":"52DCQ"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
+},{"../services/updateFruitApi":"8grgN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map
