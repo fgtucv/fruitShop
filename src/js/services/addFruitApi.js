@@ -8,7 +8,7 @@ export const addFruitApi = (newFruit) => {
         },
     }
 
-    return fetch("http://localhost:3000/fruits", options).then((data) => {
+    return fetch("https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products", options).then((data) => {
         return data.json()
     })
 };

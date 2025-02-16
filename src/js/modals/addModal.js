@@ -1,11 +1,8 @@
-import { addFruitApi } from "./services/addFruitApi.js";
+import { addFruitApi } from "../services/addFruitApi.js";
 
-const openButton = document.querySelector(".openButton");
-const form = document.querySelector(".form");
-const modal = document.querySelector(".modal");
-// const name = document.querySelector(".nameInput");
-// const price = document.querySelector(".priceInput");
-// const photo = document.querySelector(".photoInput");
+const openButton = document.querySelector(".openAddButton");
+const form = document.querySelector(".addForm");
+const modal = document.querySelector(".addModal");
 
 openButton.addEventListener("click", openModal);
 form.addEventListener("submit", closeModal);
@@ -25,4 +22,4 @@ function closeModal(event) {
     }
 
     addFruitApi(postToAdd);
-}
+};

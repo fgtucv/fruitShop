@@ -11,18 +11,33 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="openButton" type="button">Додатив корзину</button>
+
+    <button class="openAddButton" type="button">Додатив товар</button>
+
     <ul class="list">
     </ul>
-    <div class="modal is-hidden">
-        <form class="form" action="">
+    <button class="moreFruit" type="button">Показати ще</button>
+
+    <div class="modal addModal is-hidden">
+        <form class="form addForm" action="">
             <input name="nameInput" placeholder="Введіть назву фрукту" type="text">
             <input name="priceInput" placeholder="Введіть ціну фрукту" type="text">
             <input name="photoInput" placeholder="Залиште зображення фрукту" type="text">
 
-            <button class="closeModal" type="submit">Надіслати</button>
+            <button class="closeAddModal" type="submit">Надіслати</button>
         </form>
     </div>
+
+    <div class="modal updateModal is-hidden">
+        <form class="updateForm" action="">
+            <input name="updateNameInput" placeholder="Введіть назву фрукту" type="text">
+            <input name="updatePriceInput" placeholder="Введіть ціну фрукту" type="text">
+            <input name="updatePhotoInput" placeholder="Залиште зображення фрукту" type="text">
+
+            <button class="closeUpdateModal" type="submit">Надіслати</button>
+        </form>
+    </div>
+
 
     <script type="module" src="./index.js"></script>
 </body>

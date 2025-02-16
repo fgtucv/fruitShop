@@ -1,9 +1,13 @@
-import { getFruits } from "./services/getFruitApi.js";
-import { createMarkup } from "./createMarkup.js";
-import { addFruitApi } from "./services/addFruitApi.js";
-import { closeModal } from "./modal.js";
+import { getFruit } from "./fruitOperation/getFruits.js"
 
-getFruits().then((data) => {
-    createMarkup(data)
-});
+const button = document.querySelector(".moreFruit");
 
+let page = 1;
+
+button.addEventListener("click", () => {
+    page += 1;
+
+    getFruit(page);
+})
+
+getFruit(page);
