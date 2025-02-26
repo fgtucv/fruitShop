@@ -685,60 +685,81 @@ function closeModal(event) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
-const addFruitApi = (newFruit)=>{
-    const options = {
-        method: "POST",
-        body: JSON.stringify(newFruit),
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        }
-    };
-    return fetch("https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products", options).then((data)=>{
-        return data.json();
-    });
+const addFruitApi = async (newFruit)=>{
+    try {
+        const options = {
+            method: "POST",
+            body: JSON.stringify(newFruit),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+        };
+        const data = await fetch("https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products", options).then((data)=>{
+            return data.json();
+        });
+        return data;
+    } catch (error) {
+        return error;
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j65ic":[function(require,module,exports,__globalThis) {
+// export const getFruitsApi = (page) => {
+//     return fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products?page=${page}&limit=2`).then((data) => {
+//         return data.json()
+//     });
+// };
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getFruitsApi", ()=>getFruitsApi);
-const getFruitsApi = (page)=>{
-    return fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products?page=${page}&limit=2`).then((data)=>{
-        return data.json();
-    });
+const getFruitsApi = async (page)=>{
+    try {
+        const data = await fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products?page=${page}&limit=2`).then((data)=>{
+            return data.json();
+        });
+        return data;
+    } catch (error) {
+        return error;
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8grgN":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "updateFruitApi", ()=>updateFruitApi);
-var _getFruitApiJs = require("./getFruitApi.js");
-var _createMarkupJs = require("../fruitOperation/createMarkup.js");
-const updateFruitApi = function(obj, elementId) {
-    console.log(elementId);
-    const options = {
-        method: "PATCH",
-        body: JSON.stringify(obj),
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        }
-    };
-    console.log(options);
-    fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products/${elementId}`, options).then((data)=>{
-        return data.json();
-    }); //.then(() => getFruitsApi()).then((data) => createMarkup(data))
+const updateFruitApi = async (obj, elementId)=>{
+    try {
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(obj),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+        };
+        const data = await fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products/${elementId}`, options).then((data)=>{
+            return data.json();
+        });
+        return data;
+    } catch (error) {
+        return error;
+    }
 };
 
-},{"./getFruitApi.js":"j65ic","../fruitOperation/createMarkup.js":"5Kccg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"edP1X":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"edP1X":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
-const deleteFruitApi = function(id) {
-    return fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products/${id}`, {
-        method: "DELETE"
-    }).then((data)=>{
-        return data.json();
-    });
+const deleteFruitApi = async (id)=>{
+    try {
+        const data = await fetch(`https://67a8ab426e9548e44fc1adc4.mockapi.io/fruits/products/${id}`, {
+            method: "DELETE"
+        }).then((data)=>{
+            return data.json();
+        });
+        return data;
+    } catch (error) {
+        return error;
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8lRBv":[function(require,module,exports,__globalThis) {
@@ -769,6 +790,7 @@ const getFruit = (page)=>{
         const list = document.querySelector(".list");
         list.addEventListener("click", (0, _openEditModalJs.openModal));
     });
+// .catch(error => error) тепер ми відловлюємо помилку в конструкції try
 };
 
 },{"../services/getFruitApi":"j65ic","./createMarkup.js":"5Kccg","./deletFruit.js":"5YdDU","../modals/openEditModal.js":"7V7vH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5YdDU":[function(require,module,exports,__globalThis) {
@@ -782,10 +804,12 @@ const deletFruit = function(event) {
     const element = event.target.parentNode;
     const elementId = element.id;
     if (event.target.classList.contains('openUpdateButton')) return;
-    (0, _deletFruitApiJs.deleteFruitApi)(elementId).then((data)=>{}).catch((error)=>error);
+    (0, _deletFruitApiJs.deleteFruitApi)(elementId).then((data)=>{});
+    // .catch(error => ("Error:", error)) тепер ми відловлюємо помилку в конструкції try
     (0, _getFruitApiJs.getFruitsApi)().then((data)=>{
         (0, _createMarkupJs.createMarkup)(data);
     });
+// .catch(error => ("Error:", error)) тепер ми відловлюємо помилку в конструкції try
 };
 
 },{"../services/deletFruitApi.js":"edP1X","../services/getFruitApi.js":"j65ic","./createMarkup.js":"5Kccg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7V7vH":[function(require,module,exports,__globalThis) {
@@ -806,7 +830,7 @@ const openModal = function openModal(event) {
             title: event.target.elements.updateNameInput.value,
             photo: event.target.elements.updatePhotoInput.value,
             price: event.target.elements.updatePriceInput.value,
-            id: Number(id)
+            id: id
         };
         (0, _closeEditModalJs.closeModal)(event, postToUpdate);
     });
@@ -817,13 +841,15 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "closeModal", ()=>closeModal);
 var _updateFruitApi = require("../services/updateFruitApi");
+var _getFruitsJs = require("../fruitOperation/getFruits.js");
 const modal = document.querySelector(".updateModal");
-const closeModal = function(event, newInfo) {
+const closeModal = async (event, newInfo)=>{
     event.preventDefault();
+    await (0, _updateFruitApi.updateFruitApi)(newInfo, newInfo.id);
+    await (0, _getFruitsJs.getFruit)();
     modal.classList.add("is-hidden");
-    (0, _updateFruitApi.updateFruitApi)(newInfo, newInfo.id);
 };
 
-},{"../services/updateFruitApi":"8grgN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
+},{"../services/updateFruitApi":"8grgN","../fruitOperation/getFruits.js":"4BFAe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map

@@ -1,10 +1,13 @@
 import { updateFruitApi } from "../services/updateFruitApi";
+import { getFruit } from "../fruitOperation/getFruits.js"
 
 const modal = document.querySelector(".updateModal");
 
-export const closeModal = function(event, newInfo) {
+export const closeModal = async(event, newInfo) => {
     event.preventDefault()
-    modal.classList.add("is-hidden");
 
-    updateFruitApi(newInfo, newInfo.id);
+    await updateFruitApi(newInfo, newInfo.id);
+    await getFruit()
+
+    modal.classList.add("is-hidden");
 };
