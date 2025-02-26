@@ -13,9 +13,11 @@ export const deletFruit = function(event){
     }
 
     deleteFruitApi(elementId).then((data) => {
-    }).catch(error => ("Error:", error))
+    })
+    // .catch(error => ("Error:", error)) тепер ми відловлюємо помилку в конструкції try
 
     getFruitsApi().then((data) => {
         createMarkup(data)
     })
+    // .catch(error => ("Error:", error)) тепер ми відловлюємо помилку в конструкції try
 }

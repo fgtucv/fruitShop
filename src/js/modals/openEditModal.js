@@ -19,7 +19,7 @@ export const openModal = function openModal(event) {
             title: event.target.elements.updateNameInput.value,
             photo: event.target.elements.updatePhotoInput.value,
             price: event.target.elements.updatePriceInput.value,
-            id: Number(id),
+            id: id,
         }
         closeModal(event, postToUpdate);
     });

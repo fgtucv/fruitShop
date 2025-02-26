@@ -14,5 +14,6 @@ export const getFruit = (page) => {
     
         const list = document.querySelector(".list");
         list.addEventListener("click", openModal);
-    });
-}
+    })
+    // .catch(error => error) тепер ми відловлюємо помилку в конструкції try
+};
